@@ -3,12 +3,7 @@ import { COLOR_FAUX_DARK, COLOR_GREEN, COLOR_WHITE } from "../styles/colors";
 import { vh } from "react-native-css-vh-vw";
 
 export default function Topbar() {
-  const user = {
-    name: "Jo",
-    totalFunds: "42,000",
-    currency: "KES",
-  };
-
+  const { user } = require("../data/user");
   return (
     <View style={styles.topbar}>
       <Text style={styles.name}>Afternoon, {user.name}</Text>

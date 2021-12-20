@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: COLOR_WHITE,
     borderRadius: BORDER_RADIUS,
-    marginVertical: 20,
+    marginVertical: 10,
     flexDirection: "row",
     justifyContent: "space-around",
 
