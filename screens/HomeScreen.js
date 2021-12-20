@@ -4,6 +4,7 @@ import Topbar from "../components/Topbar";
 import { LIGHT_GRAY } from "../styles/colors";
 import { BORDER_RADIUS } from "../styles/variables";
 import { vh } from "react-native-css-vh-vw";
+import PrimaryButton from "../components/buttons/PrimaryButton";
 
 export default function HomeScreen() {
   return (
@@ -11,6 +12,8 @@ export default function HomeScreen() {
       <Topbar />
       <View style={styles.container}>
         <Text>Home screen</Text>
+
+        <PrimaryButton onPress={() => null} />
       </View>
     </DefaultLayout>
   );
