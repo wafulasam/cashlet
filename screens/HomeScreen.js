@@ -18,7 +18,9 @@ export default function HomeScreen() {
           <CustomCard name={goal.name} amount={goal.amount} key={goal.name} />
         ))}
 
-        <PrimaryButton onPress={() => null} />
+        <View style={styles.buttonHolder}>
+          <PrimaryButton onPress={() => null} />
+        </View>
       </View>
     </DefaultLayout>
   );
@@ -35,5 +37,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  buttonHolder: {
+    marginTop: vh(20),
+    // left: 0,
+    // bottom: 10,
+    // right: 0,
   },
 });
