@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { COLOR_PINK, COLOR_WHITE } from "../styles/colors";
 import { BORDER_RADIUS } from "../styles/variables";
@@ -7,6 +7,9 @@ import { Ionicons } from "@expo/vector-icons";
 export default function SnackBar({ isVisible = false }) {
   const [visible, setVisible] = useState(isVisible);
   const [clickedSnackbar, setClickedSnackbar] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setVisible(false), 10000); // close snackbar after 10 sec
+  }, []);
   return visible ? (
     <TouchableOpacity onPress={() => setClickedSnackbar(true)}>
       <View style={styles.snackbar}>
@@ -44,6 +47,8 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+    zIndex: 3, // works on ios
+    elevation: 3, // works on android
     //  position: "absolute",
   },
   closeIcon: {

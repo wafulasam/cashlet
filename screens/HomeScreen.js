@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Alert } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import DefaultLayout from "./Layouts/DefaultLayout";
 import Topbar from "../components/Topbar";
 import { LIGHT_GRAY } from "../styles/colors";
