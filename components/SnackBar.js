@@ -7,9 +7,9 @@ import { Ionicons } from "@expo/vector-icons";
 export default function SnackBar({ isVisible = false }) {
   const [visible, setVisible] = useState(isVisible);
   const [clickedSnackbar, setClickedSnackbar] = useState(false);
-  useEffect(() => {
-    setTimeout(() => setVisible(false), 10000); // close snackbar after 10 sec
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => setVisible(false), 10000); // close snackbar after 10 sec
+  // }, []);
   return visible ? (
     <TouchableOpacity onPress={() => setClickedSnackbar(true)}>
       <View style={styles.snackbar}>

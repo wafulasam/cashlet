@@ -10,7 +10,7 @@ import PrimaryButton from "../components/buttons/PrimaryButton";
 import SnackBar from "../components/SnackBar";
 
 export default function HomeScreen() {
-  const [showSnackbar, setShowSnackbar] = useState(true);
+  const [showSnackbar, setShowSnackbar] = useState(false);
   const { goals } = require("../data/goals");
   return (
     <DefaultLayout>
