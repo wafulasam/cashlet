@@ -4,11 +4,11 @@ import { COLOR_GREEN, COLOR_TEXT, COLOR_WHITE } from "../../styles/colors";
 import { Entypo } from "@expo/vector-icons";
 
 export default function CustomCard(props) {
-  const { goal, amount } = props;
+  const { name, amount } = props;
   return (
     <View style={styles.customCard}>
       <View>
-        <Text style={styles.goal}>{goal}</Text>
+        <Text style={styles.goal}>{name}</Text>
         <Text style={styles.amount}>{amount}</Text>
       </View>
       <Pressable onPress={() => null} style={styles.badge}>
