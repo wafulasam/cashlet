@@ -7,10 +7,17 @@ import { Ionicons } from "@expo/vector-icons";
 export default function SnackBar(props) {
   const { showSnackBar = false, setShowSnackBar = () => null } = props;
   const [changeText, setChangeText] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setShowSnackBar(false), 10000); // close snackbar after 10 sec
+  }, []);
+
   if (!showSnackBar) return null;
 
   return (
-    <TouchableOpacity onPress={() => setChangeText(true)}>
+    <TouchableOpacity
+      onPress={(() => setChangeText(true), setChangeText(false))}
+    >
       <View style={styles.snackbar}>
         <Ionicons
           name="close-circle-outline"
