@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { COLOR_PINK, COLOR_WHITE } from "../styles/colors";
 import { BORDER_RADIUS } from "../styles/variables";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function SnackBar({ isVisible = false }) {
-  const [visible, setVisible] = useState(isVisible);
-  const [clickedSnackbar, setClickedSnackbar] = useState(false);
-  // useEffect(() => {
-  //   setTimeout(() => setVisible(false), 10000); // close snackbar after 10 sec
-  // }, []);
-  return visible ? (
-    <TouchableOpacity onPress={() => setClickedSnackbar(true)}>
+export default function SnackBar(props) {
+  const { showSnackBar = false, setShowSnackBar = () => null } = props;
+  const [changeText, setChangeText] = useState(false);
+  if (!showSnackBar) return null;
+
+  return (
+    <TouchableOpacity onPress={() => setChangeText(true)}>
       <View style={styles.snackbar}>
         <Ionicons
           name="close-circle-outline"
           size={30}
           color={COLOR_WHITE}
           style={styles.closeIcon}
-          onPress={() => setVisible(false)}
+          onPress={() => setShowSnackBar(false)}
         />
-
-        {clickedSnackbar ? (
+        {changeText ? (
           <Text style={styles.message}>User clicked snackbar</Text>
         ) : (
           <Text style={styles.message}>
@@ -31,7 +29,7 @@ export default function SnackBar({ isVisible = false }) {
         )}
       </View>
     </TouchableOpacity>
-  ) : null;
+  );
 }
 
 const styles = StyleSheet.create({
