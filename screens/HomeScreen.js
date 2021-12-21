@@ -10,11 +10,11 @@ import PrimaryButton from "../components/buttons/PrimaryButton";
 import SnackBar from "../components/SnackBar";
 
 export default function HomeScreen() {
-  const [showSnackbar, setShowSnackbar] = useState(false);
+  const [showSnackBar, setShowSnackBar] = useState(false);
   const { goals } = require("../data/goals");
   return (
     <DefaultLayout>
-      <SnackBar isVisible={showSnackbar} />
+      <SnackBar showSnackBar={showSnackBar} setShowSnackBar={setShowSnackBar} />
       <Topbar />
       <View style={styles.container}>
         <Text style={styles.title}>Your Goals</Text>
@@ -23,7 +23,7 @@ export default function HomeScreen() {
         ))}
 
         <View style={styles.buttonHolder}>
-          <PrimaryButton onPress={() => setShowSnackbar(true)} />
+          <PrimaryButton onPress={() => setShowSnackBar(true)} />
         </View>
       </View>
     </DefaultLayout>
