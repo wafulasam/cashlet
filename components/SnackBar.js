@@ -15,9 +15,7 @@ export default function SnackBar(props) {
   if (!showSnackBar) return null;
 
   return (
-    <TouchableOpacity
-      onPress={(() => setChangeText(true), setChangeText(false))}
-    >
+    <TouchableOpacity onPress={() => setChangeText(true)}>
       <View style={styles.snackbar}>
         <Ionicons
           name="close-circle-outline"
@@ -45,16 +43,12 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 10,
     borderRadius: BORDER_RADIUS,
-    //  flexDirection: "row",
-    //  alignSelf: "flex-start",
-    //  justifyContent: "space-around",
-    //  minWidth: "80%",
+
+    position: "absolute",
     left: 0,
-    bottom: 0,
+    bottom: -105,
     right: 0,
-    zIndex: 3, // works on ios
-    elevation: 3, // works on android
-    //  position: "absolute",
+    zIndex: 1,
   },
   closeIcon: {
     marginLeft: -15,

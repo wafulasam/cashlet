@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     height: vh(30),
     paddingVertical: 30,
     paddingHorizontal: 20,
+    zIndex: -1,
   },
   name: {
     color: COLOR_WHITE,
