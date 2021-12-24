@@ -1,43 +1,41 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TouchableHighlight,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { COLOR_PINK, COLOR_WHITE } from "../styles/colors";
 import { BORDER_RADIUS } from "../styles/variables";
 import { EvilIcons } from "@expo/vector-icons";
 
 export default function SnackBar(props) {
   const { showSnackBar = false, setShowSnackBar = () => null } = props;
-  const [clicked, setClick] = useState(false);
+  const [changeText, setChangeText] = useState("original");
 
-  // useEffect(() => {
-  //   setTimeout(() => setShowSnackBar(false), 10000); // close snackbar after 10 sec
-  // }, []);
+  // close snackbar after 10 sec
+  if (showSnackBar) {
+    setTimeout(() => {
+      setShowSnackBar(false), setChangeText("original");
+    }, 10000);
+  }
 
   if (!showSnackBar) return null;
 
   return (
-    <TouchableOpacity onPress={() => setClick(true)}>
+    <TouchableOpacity onPress={() => setChangeText(!changeText)}>
       <View style={styles.snackbar}>
-        <TouchableHighlight onPress={() => setShowSnackBar(false)}>
-          <EvilIcons
-            name="close"
-            size={20}
-            color={COLOR_WHITE}
-            style={styles.closeIcon}
-          />
-        </TouchableHighlight>
-        {clicked ? (
-          <Text style={styles.message}>User clicked snackbar</Text>
-        ) : (
+        <EvilIcons
+          name="close"
+          size={20}
+          color={COLOR_WHITE}
+          style={styles.closeIcon}
+          onPress={() => {
+            setShowSnackBar(false), setChangeText("original");
+          }}
+        />
+        {changeText === "original" ? (
           <Text style={styles.message}>
             This is an in-app notification snackbar to show the user when they
             perform an action. Clicking it should change the text.
           </Text>
+        ) : (
+          <Text style={styles.message}>User clicked snackbar</Text>
         )}
       </View>
     </TouchableOpacity>
