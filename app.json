@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Cashlet",
-    "slug": "Cash-Let",
+    "slug": "cash-let",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
