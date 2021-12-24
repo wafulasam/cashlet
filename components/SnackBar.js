@@ -1,30 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TouchableHighlight,
+} from "react-native";
 import { COLOR_PINK, COLOR_WHITE } from "../styles/colors";
 import { BORDER_RADIUS } from "../styles/variables";
-import { Ionicons } from "@expo/vector-icons";
+import { EvilIcons } from "@expo/vector-icons";
 
 export default function SnackBar(props) {
   const { showSnackBar = false, setShowSnackBar = () => null } = props;
-  const [changeText, setChangeText] = useState(false);
+  const [clicked, setClick] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => setShowSnackBar(false), 10000); // close snackbar after 10 sec
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => setShowSnackBar(false), 10000); // close snackbar after 10 sec
+  // }, []);
 
   if (!showSnackBar) return null;
 
   return (
-    <TouchableOpacity onPress={() => setChangeText(true)}>
+    <TouchableOpacity onPress={() => setClick(true)}>
       <View style={styles.snackbar}>
-        <Ionicons
-          name="close-circle-outline"
-          size={30}
-          color={COLOR_WHITE}
-          style={styles.closeIcon}
-          onPress={() => setShowSnackBar(false)}
-        />
-        {changeText ? (
+        <TouchableHighlight onPress={() => setShowSnackBar(false)}>
+          <EvilIcons
+            name="close"
+            size={20}
+            color={COLOR_WHITE}
+            style={styles.closeIcon}
+          />
+        </TouchableHighlight>
+        {clicked ? (
           <Text style={styles.message}>User clicked snackbar</Text>
         ) : (
           <Text style={styles.message}>
@@ -43,16 +50,15 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 10,
     borderRadius: BORDER_RADIUS,
-
     position: "absolute",
     left: 0,
-    bottom: -105,
+    bottom: -130,
     right: 0,
     zIndex: 1,
   },
   closeIcon: {
-    marginLeft: -15,
-    marginTop: -20,
+    marginTop: -10,
+    alignSelf: "flex-end",
   },
   message: {
     color: COLOR_WHITE,

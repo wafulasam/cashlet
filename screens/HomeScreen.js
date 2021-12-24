@@ -14,10 +14,13 @@ export default function HomeScreen() {
   const { goals } = require("../data/goals");
   return (
     <DefaultLayout>
+      {/* snackbar */}
       <SnackBar showSnackBar={showSnackBar} setShowSnackBar={setShowSnackBar} />
+
       <Topbar />
       <View style={styles.container}>
         <Text style={styles.title}>Your Goals</Text>
+
         {goals.map((goal) => (
           <CustomCard name={goal.name} amount={goal.amount} key={goal.id} />
         ))}
@@ -35,7 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: LIGHT_GRAY,
     height: vh(80),
     padding: 20,
-    marginTop: vh(-10),
+    marginTop: -30,
     borderRadius: BORDER_RADIUS,
   },
   title: {
